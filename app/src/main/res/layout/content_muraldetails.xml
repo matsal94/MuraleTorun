@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mural_detailsNSV"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="false"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    tools:context="co.jwwebdev.MuralDetails"
+    tools:showIn="@layout/activity_muraldetails">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+        <!--bez "focusable i focusableInTouchMode" ustawionych na true przy starcie podwija się pod Collapsing ActionBar-->
+        <TextView
+            android:id="@+id/mural_details_addressTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fab_margin1"
+            android:layout_marginTop="@dimen/fab_margin1"
+            android:layout_marginEnd="@dimen/fab_margin1"
+            android:layout_marginBottom="@dimen/fab_margin1"
+            android:fontFamily="@font/karma_medium"
+            android:textSize="16sp"
+            android:transitionName="addressTransition" />
+
+        <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+            android:id="@+id/mural_details_directionCPB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/fab_margin1"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="@dimen/fab_margin1"
+            android:layout_marginBottom="0dp"
+            android:background="@color/colorAccent"
+            android:fontFamily="@font/karma_medium"
+            android:onClick="onClickButton"
+            android:text="@string/how_to_get"
+            android:textColor="@color/white"
+            app:spinning_bar_color="@color/white"
+            app:spinning_bar_padding="0dp"
+            app:spinning_bar_width="4dp" />
+
+        <TextView
+            android:id="@+id/mural_details_descriptionTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin1"
+            android:fontFamily="@font/karma"
+            android:text="Opis"
+            android:textSize="15sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/mural_detailsRV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_marginBottom="@dimen/fab_margin">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
+

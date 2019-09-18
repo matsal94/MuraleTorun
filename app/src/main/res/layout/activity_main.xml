@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainCoL"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    tools:context="co.jwwebdev.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/mainABL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="false"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout
+            android:id="@+id/mainCTL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="enterAlways|enterAlwaysCollapsed|exitUntilCollapsed"
+            app:titleEnabled="false">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/mainTbr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_collapseMode="parallax"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                    <com.master.glideimageview.GlideImageView
+                        android:id="@+id/mainGIV"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginEnd="@dimen/fab_margin1"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/logo"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="2dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/scrim_image" />
+
+                </android.support.v7.widget.Toolbar>
+
+                <TextView
+                    android:id="@+id/main_titleTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/fab_margin1"
+                    android:fontFamily="@font/karma_medium"
+                    android:gravity="center"
+                    android:text="@string/subtitle"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_collapseMode="parallax"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/mainTbr"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/mainTbr"
+                    app:layout_constraintTop_toBottomOf="@+id/mainTbr" />
+
+                <ImageButton
+                    android:id="@+id/main_map_addIB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@android:color/transparent"
+                    android:onClick="onClickMapAdd"
+                    android:padding="@dimen/fab_margin"
+                    android:src="@drawable/ic_map_add"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/mainTbr"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <ImageButton
+                    android:id="@+id/main_map_removeIB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:background="@android:color/transparent"
+                    android:onClick="onClickMapRemove"
+                    android:padding="@dimen/fab_margin"
+                    android:src="@drawable/ic_map_remove"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/mainTbr"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout>
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mainMV"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            app:layout_collapseMode="parallax"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/main_titleTV" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_main" />
+
+</android.support.design.widget.CoordinatorLayout>

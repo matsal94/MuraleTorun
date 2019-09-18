@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="co.jwwebdev.MuralDetails">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/mural_detailsABL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout
+            android:id="@+id/mural_detailsCTL"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:fitsSystemWindows="false"
+            app:collapsedTitleTextAppearance="@style/ABLTextAppearance"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginBottom="0dp"
+            app:expandedTitleMarginStart="@dimen/fab_margin1"
+            app:expandedTitleTextAppearance="@style/ABLTextAppearance2"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:maxLines="3">
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mural_detailsMV"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_collapseMode="parallax" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/mural_details_localizeIB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="40dp"
+                android:background="@android:color/transparent"
+                android:onClick="onClickLocalize"
+                android:padding="@dimen/fab_margin1"
+                android:src="@drawable/ic_location"
+                android:visibility="invisible"
+                app:layout_collapseMode="parallax" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/mural_detailsTbr"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:transitionName="nameTransition"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="Tytuł" />
+
+        </net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_muraldetails" />
+
+</android.support.design.widget.CoordinatorLayout>
